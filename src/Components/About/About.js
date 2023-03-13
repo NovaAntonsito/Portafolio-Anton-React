@@ -16,12 +16,10 @@ export default function About() {
             index={15} 
           />
           </h1>
-          <p>Soy un desarrollador web full-stack que necesita estar constantemente aprendiendo y
-          trabajando en equipo. Siempre buscando estar actualizando mis conocimientos en la Tecnologia
+          <p>Soy un desarrollador web full-stack que se dedica a estar siempre en constante aprendizaje y trabajo en equipo.
           </p>
-          <p>Naturalmente curioso, buscando aplicar mis conocimientos en practicas y 
-            expanderme en todo lo posible, siempre acompañado de musica para enfocarme</p>
-          <p>Mi especialidad es el back-end tanto como en Node.JS, Spring Boot</p>
+          <p> Busco estar actualizado constantemente en las últimas tecnologías, ya que soy naturalmente curioso y me gusta aplicar mis conocimientos en la práctica y expandirlos lo más posible. Además, me ayuda mucho la música para enfocarme. </p>
+          <p>Mi especialidad se enfoca en el back-end, donde tengo experiencia en Node.JS y Spring Boot.</p>
       </div>
       <div className='stage-cube-cont'>
        <div className='cube-spinner'>

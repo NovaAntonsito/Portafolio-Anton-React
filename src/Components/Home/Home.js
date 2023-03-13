@@ -9,6 +9,7 @@ export default function Home() {
     const [letterClass, setLetterClass] = useState('Animation')
     const nameArray = [' ','M','a','r','c','o','s',' ','A','n','t','o','n']
     const jobArray = ['W','e','b',' ','D','e','v','e','l','o','p','e','r']
+    
 
    /* useEffect(()=>{
       return setTimeout(()=>{
@@ -17,6 +18,7 @@ export default function Home() {
       }, 4000)
     }, [])
 */
+
   return (
     <>
     <div className='container home-page'>

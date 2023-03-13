@@ -39,12 +39,18 @@
   }
   .dev {
     position: absolute;
-    width: 65%;
-    height:100%;
+    width: 40rem;
+    height: 40rem;
     margin-left: 70rem;
-    margin-top: -6rem;
-    border-radius: 5px;
+    margin-top: -10rem;
+    border-radius: 50%;
     border: 5px solid white;
+    transition: 0.2s ease-in-out all;
+
+    &:hover{
+      transition-duration: 0.3s;
+      transform: scale(1.1);
+    }
   }
   h2 {
     color: #8d8d8d;

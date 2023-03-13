@@ -1,6 +1,6 @@
 import './Sidebar.scss'
 import Logo from '../../Assets/images/logo-s.png'
-import { faGithub, faLinkedin, faSpotify } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons'
 import {Link, NavLink} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faEnvelope} from '@fortawesome/free-solid-svg-icons'
@@ -22,9 +22,6 @@ const Sidebar = () =>{
                 </NavLink>
                 <NavLink exact="true" className="contact-me" to= "/contactme">
                     <FontAwesomeIcon icon={faEnvelope} color='#FFFFFF'/>
-                </NavLink>
-                <NavLink exact="true" className="my-playlist" to= "/playlist">
-                    <FontAwesomeIcon icon={faSpotify} color='#FFFFFF'/>
                 </NavLink>
             </nav>
             <ul>
