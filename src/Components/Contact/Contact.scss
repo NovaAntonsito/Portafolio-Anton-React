@@ -1,17 +1,20 @@
-.contact-form{
+.contact-form {
     width: 100%;
     margin-top: 20px;
+    
+    @media (max-width: 768px) {
+        margin-top: 3rem;
+    }
 
-    ul{
+    ul {
         padding: 0;
         margin: 0;
-        left: 60rem;
-        bottom: -7rem;
-        li{
+        list-style: none;
+        
+        li {
             padding: 0;
             margin: 0;
-            list-style: none;
-            margin-bottom: 10px;
+            margin-bottom: 2rem;
             overflow: hidden;
             display: block;
             position: relative;
@@ -19,55 +22,258 @@
             animation: fadeInUp 2s 2s;
             animation-fill-mode: forwards;
             clear: both;
+            
+            @media (max-width: 768px) {
+                margin-bottom: 1.5rem;
+            }
         }
-        li.half{
+        
+        li.half {
             width: 49%;
             margin-left: 2%;
             float: left;
             clear: none;
-            &:first-child{
+            
+            @media (max-width: 768px) {
+                width: 100%;
+                margin-left: 0;
+                float: none;
+            }
+            
+            &:first-child {
                 margin-left: 0;
             }
         }
+        
         input[type='text'],
-        input[type='email']{
-            font-family: 'Coolvetica';
+        input[type='email'] {
+            font-family: 'Helvetica Neue', sans-serif;
             width: 100%;
-            border: 0;
-            background: #115173;
+            border: 2px solid #00ff41;
+            background: rgba(0, 0, 0, 0.7);
             height: 50px;
-            font-size: 16px;
-            color: #ffff;
+            font-size: 1.6rem;
+            color: #ffffff;
             padding: 0 20px;
             box-sizing: border-box;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            
+            @media (max-width: 768px) {
+                font-size: 1.4rem;
+                height: 45px;
+            }
+            
+            &:focus {
+                outline: none;
+                border-color: #00d4ff;
+                box-shadow: 
+                    0 0 15px rgba(0, 212, 255, 0.5),
+                    inset 0 0 15px rgba(0, 212, 255, 0.1);
+                background: rgba(0, 0, 0, 0.8);
+            }
+            
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+                font-style: italic;
+            }
         }
-        textarea{
-            font-family: 'Coolvetica';
+        
+        textarea {
+            font-family: 'Helvetica Neue', sans-serif;
             width: 100%;
-            background: #115173;
-            border: 0;
-            height: 50px;
-            font-size: 16px;
-            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ff41;
+            min-height: 150px;
+            font-size: 1.6rem;
+            color: #ffffff;
             padding: 20px;
-            min-height: 50px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            resize: vertical;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            
+            @media (max-width: 768px) {
+                font-size: 1.4rem;
+                min-height: 120px;
+            }
+            
+            &:focus {
+                outline: none;
+                border-color: #00d4ff;
+                box-shadow: 
+                    0 0 15px rgba(0, 212, 255, 0.5),
+                    inset 0 0 15px rgba(0, 212, 255, 0.1);
+                background: rgba(0, 0, 0, 0.8);
+            }
+            
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+                font-style: italic;
+            }
         }
-        .flat-button{
-            font-family: 'Coolvetica';
-            color: #ffd700;
-            background: 0 0;
-            font: 11px;
+        
+        .flat-button {
+            font-family: 'Coolvetica', sans-serif;
+            color: #00ff41;
+            background: transparent;
+            font-size: 1.4rem;
             letter-spacing: 3px;
             text-decoration: none;
-            padding: 8px 10px;
-            border: 1px solid #ffd700;
+            text-transform: uppercase;
+            padding: 1.2rem 2.5rem;
+            border: 2px solid #00ff41;
             float: right;
             border-radius: 4px;
-        }
-        .flat-button:hover{
-                cursor: pointer;
-                transform: scale(1);
-                transition-duration: 1s;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            
+            @media (max-width: 768px) {
+                float: none;
+                width: 100%;
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
+                transition: left 0.5s;
+            }
+            
+            &:hover {
+                color: #0a0a0a;
+                background: #00ff41;
+                box-shadow: 
+                    0 0 20px rgba(0, 255, 65, 0.7),
+                    inset 0 0 20px rgba(0, 255, 65, 0.1);
+                transform: translateY(-2px);
+                
+                &::before {
+                    left: 100%;
+                }
+            }
+            
+            &:active {
+                transform: translateY(0);
+            }
         }
     }
+}
+
+// Contact info cards (for future enhancement)
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    
+    .info-card {
+        background: rgba(0, 0, 0, 0.7);
+        border: 2px solid #00ff41;
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        
+        &:hover {
+            border-color: #ff0080;
+            box-shadow: 
+                0 0 20px rgba(255, 0, 128, 0.3),
+                inset 0 0 20px rgba(255, 0, 128, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .info-icon {
+            font-size: 3rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #00d4ff;
+        }
+        
+        .info-title {
+            font-family: 'Coolvetica', sans-serif;
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+        
+        .info-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.4rem;
+            line-height: 1.5;
+        }
+    }
+}
+
+// Cyberpunk form validation styles
+.form-field {
+    position: relative;
+    
+    &.error {
+        input,
+        textarea {
+            border-color: #ff0080;
+            box-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+        }
+    }
+    
+    &.success {
+        input,
+        textarea {
+            border-color: #00ff41;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+    }
+    
+    .field-label {
+        position: absolute;
+        top: -10px;
+        left: 15px;
+        background: #0a0a0a;
+        padding: 0 5px;
+        font-size: 1.2rem;
+        color: #00ff41;
+        font-family: 'Coolvetica', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}
+
+// Loading state for form submission
+.form-loading {
+    .flat-button {
+        opacity: 0.6;
+        cursor: not-allowed;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid #00ff41;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+    }
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }

@@ -1,70 +1,257 @@
-.stage-cube-cont{
-    width: 50%;
+.stage-cube-cont {
+    width: 40%;
     height: 100%;
     top: 0;
     padding-top: 18%;
     margin-top: 0;
     position: absolute;
-    right: 0;
+    right: 5%;
     overflow: hidden;
+    
+    @media (max-width: 1024px) {
+        width: 50%;
+        right: 2%;
+    }
+    
+    @media (max-width: 768px) {
+        position: relative;
+        width: 100%;
+        right: auto;
+        padding-top: 5%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
-.cube-spinner{
+
+.cube-spinner {
     animation-name: spincube;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-duration: 12s;
     transform-style: preserve-3d;
-    transform-origin: 100px 100px 0 ;
+    transform-origin: 100px 100px 0;
     margin-left: calc(50% - 100px);
-    div{
+    
+    @media (max-width: 768px) {
+        margin-left: 0;
+    }
+    
+    div {
         position: absolute;
         width: 200px;
         height: 200px;
-        bottom: 1px solid white;
-        background: rgba(255,255,255,1);
+        border: 2px solid #00ff41;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(105, 3, 105, 0.3) 100%);
         font-size: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
+        box-shadow: 
+            0 0 20px rgba(0, 255, 65, 0.3),
+            inset 0 0 20px rgba(0, 255, 65, 0.1);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        
+        @media (max-width: 768px) {
+            width: 150px;
+            height: 150px;
+            font-size: 75px;
+        }
+        
+        @media (max-width: 480px) {
+            width: 120px;
+            height: 120px;
+            font-size: 60px;
+        }
+        
+        &:hover {
+            border-color: #ff0080;
+            box-shadow: 
+                0 0 30px rgba(255, 0, 128, 0.5),
+                inset 0 0 30px rgba(255, 0, 128, 0.1);
+        }
+        
+        svg {
+            filter: drop-shadow(0 0 10px currentColor);
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 20px currentColor);
+            }
+        }
     }
-    .face1{
-        transform: translateZ(100px)
+    
+    .face1 {
+        transform: translateZ(100px);
+        
+        @media (max-width: 768px) {
+            transform: translateZ(75px);
+        }
+        
+        @media (max-width: 480px) {
+            transform: translateZ(60px);
+        }
     }
-    .face2{
+    
+    .face2 {
         transform: rotateY(90deg) translateZ(100px);
+        
+        @media (max-width: 768px) {
+            transform: rotateY(90deg) translateZ(75px);
+        }
+        
+        @media (max-width: 480px) {
+            transform: rotateY(90deg) translateZ(60px);
+        }
     }
-    .face3{
+    
+    .face3 {
         transform: rotateY(90deg) rotateX(90deg) translateZ(100px);
+        
+        @media (max-width: 768px) {
+            transform: rotateY(90deg) rotateX(90deg) translateZ(75px);
+        }
+        
+        @media (max-width: 480px) {
+            transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+        }
     }
-    .face4{
+    
+    .face4 {
         transform: rotateY(180deg) rotateZ(90deg) translateZ(100px);
+        
+        @media (max-width: 768px) {
+            transform: rotateY(180deg) rotateZ(90deg) translateZ(75px);
+        }
+        
+        @media (max-width: 480px) {
+            transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+        }
     }
-    .face5{
+    
+    .face5 {
         transform: rotateY(-90deg) rotateZ(90deg) translateZ(100px);
+        
+        @media (max-width: 768px) {
+            transform: rotateY(-90deg) rotateZ(90deg) translateZ(75px);
+        }
+        
+        @media (max-width: 480px) {
+            transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+        }
     }
-    .face6{
+    
+    .face6 {
         transform: rotateX(-90deg) translateZ(100px);
+        
+        @media (max-width: 768px) {
+            transform: rotateX(-90deg) translateZ(75px);
+        }
+        
+        @media (max-width: 480px) {
+            transform: rotateX(-90deg) translateZ(60px);
+        }
     }
 }
 
 @keyframes spincube {
     from,
-    to{
+    to {
         transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     }
-    16%{
+    16% {
         transform: rotateY(-90deg);
     }
-    33%{
+    33% {
         transform: rotateY(-90deg) rotateZ(90deg);
     }
-    50%{
+    50% {
         transform: rotateY(-180deg) rotateZ(90deg);
     }
-    66%{
+    66% {
         transform: rotateY(-270deg) rotateZ(90deg);
     }
-    83%{
+    83% {
         transform: rotateX(90deg) rotateZ(90deg);
+    }
+}
+
+// Cyberpunk skill bars (for future enhancement)
+.skill-bars {
+    margin-top: 3rem;
+    
+    .skill-bar {
+        margin-bottom: 2rem;
+        
+        .skill-name {
+            color: #00ff41;
+            font-family: 'Coolvetica', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px #00ff41;
+        }
+        
+        .skill-progress {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ff41;
+            border-radius: 4px;
+            overflow: hidden;
+            
+            .skill-fill {
+                height: 100%;
+                background: linear-gradient(90deg, #00ff41, #00d4ff);
+                box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+                transition: width 2s ease-in-out;
+            }
+        }
+    }
+}
+
+// Floating tech icons
+.tech-float {
+    position: absolute;
+    font-size: 2rem;
+    color: #00d4ff;
+    animation: techFloat 8s ease-in-out infinite;
+    opacity: 0.3;
+    
+    &:nth-child(1) {
+        top: 10%;
+        right: 10%;
+        animation-delay: 0s;
+    }
+    
+    &:nth-child(2) {
+        top: 30%;
+        right: 5%;
+        animation-delay: 2s;
+        color: #ff0080;
+    }
+    
+    &:nth-child(3) {
+        top: 70%;
+        right: 15%;
+        animation-delay: 4s;
+        color: #00ff41;
+    }
+    
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+@keyframes techFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-30px) rotate(180deg);
+        opacity: 0.7;
     }
 }

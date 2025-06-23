@@ -1,23 +1,164 @@
-.Animation{
+.Animation {
     display: inline-block;
     opacity: 0;
     animation: bounceIn 1.5s 1.5s;
     animation-fill-mode: forwards;
     min-width: 10px;
-    
+    color: inherit;
+    text-shadow: inherit;
 }
-.Animation-hover{
+
+.Animation-hover {
     min-width: 10px;
     display: inline-block;
     animation-fill-mode: both;
-    &:hover{
+    color: inherit;
+    text-shadow: inherit;
+    transition: all 0.3s ease;
+    
+    &:hover {
         animation: rubberBand 1s;
-        color:#690369 ;
+        color: #ff0080;
+        text-shadow: 
+            0 0 10px #ff0080,
+            0 0 20px #ff0080;
+        transform: scale(1.1);
     }
 }
 
-@for $i from 1 through 35{
-    .text-animate._#{$i}{
-        animation-delay: #{$i /10}s;
+// Enhanced animation delays with cyberpunk colors
+@for $i from 1 through 35 {
+    .text-animate._#{$i} {
+        animation-delay: #{$i / 10}s;
+        
+        &:nth-child(#{$i}) {
+            @if $i % 3 == 0 {
+                color: #00ff41;
+            } @else if $i % 3 == 1 {
+                color: #00d4ff;
+            } @else {
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+// Cyberpunk text effects
+.cyber-text {
+    position: relative;
+    
+    &::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #ff0080;
+        opacity: 0;
+        animation: glitchBefore 3s infinite;
+    }
+    
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #00d4ff;
+        opacity: 0;
+        animation: glitchAfter 3s infinite;
+    }
+}
+
+@keyframes glitchBefore {
+    0%, 96%, 100% { opacity: 0; }
+    97% { 
+        opacity: 1;
+        transform: translate(-2px, -2px);
+    }
+    98% { 
+        opacity: 1;
+        transform: translate(2px, 2px);
+    }
+    99% { 
+        opacity: 1;
+        transform: translate(-2px, 2px);
+    }
+}
+
+@keyframes glitchAfter {
+    0%, 94%, 100% { opacity: 0; }
+    95% { 
+        opacity: 1;
+        transform: translate(2px, -2px);
+    }
+    96% { 
+        opacity: 1;
+        transform: translate(-2px, -2px);
+    }
+    97% { 
+        opacity: 1;
+        transform: translate(2px, 2px);
+    }
+}
+
+// Neon pulse animation
+.neon-pulse {
+    animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+    from {
+        text-shadow: 
+            0 0 5px currentColor,
+            0 0 10px currentColor,
+            0 0 15px currentColor;
+    }
+    to {
+        text-shadow: 
+            0 0 10px currentColor,
+            0 0 20px currentColor,
+            0 0 30px currentColor,
+            0 0 40px currentColor;
+    }
+}
+
+// Matrix-style text rain effect (for special occasions)
+.matrix-rain {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '01010101010101010101';
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 200%;
+        color: #00ff41;
+        font-family: 'Courier New', monospace;
+        font-size: 0.8rem;
+        opacity: 0.1;
+        animation: matrixFall 10s linear infinite;
+        pointer-events: none;
+    }
+}
+
+@keyframes matrixFall {
+    0% {
+        top: -100%;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.1;
+    }
+    90% {
+        opacity: 0.1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
     }
 }
